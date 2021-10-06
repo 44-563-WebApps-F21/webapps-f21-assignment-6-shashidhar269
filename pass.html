@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Webapps lab6</title>
+</head>
+
+<body>
+
+    <h2>Pass phrase by Shashidhar Reddy Peddireddy</h2>
+
+    <form>
+        <label for="f_s">Enter the secret phrase</label>
+        <input type="password" value="Let me in" id="f_s"><br><br>
+
+        <label for="f_p">Enter a phrase</label>
+        <input type="text" id="f_p"><br><br>
+
+        <input type="button" onclick="processPhrase()" value="Check the phrase">
+    </form>
+    <p id="res">correct: 0 wrong: 0</p>
+    <div class="container">
+        <img src="dog.png" id="result1" width=200 height=200 onclick=newImage()>
+    </div>
+    <script>
+        correct = 0
+        wrong = 0
+        usingImage = 1
+        function processPhrase() {
+            console.log("Getting form values")
+            f_s1 = document.getElementById("f_s").value
+            f_p1 = document.getElementById("f_p").value
+            out = document.getElementById("res")
+            if (f_s1 == f_p1) {
+                correct = correct + 1
+                alert("Access allowed")
+            }
+            else {
+                wrong = wrong + 1
+                alert("Access denied")
+            }
+            out.innerHTML = "correct: " + correct + "  wrong: " + wrong;
+
+        }
+        function newImage() {
+            switch (usingImage) {
+                case 1: document.getElementById("result1").src = "Elephant.jpg";
+                    usingImage = usingImage + 1;
+                    break;
+                case 2: document.getElementById("result1").src = "Panther.jpg";
+                    usingImage = usingImage + 1;
+                    break;
+                case 3: document.getElementById("result1").src = "dog.png";
+                    usingImage = 1;
+                    break;
+                default:
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
