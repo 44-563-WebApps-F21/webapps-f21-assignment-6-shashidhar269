@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>computes by Shashidhar Reddy Peddireddy</h2>
+
+    <form>
+        <label for="base">Enter a base: </label>
+        <input type="number" id="base" name="base" value=10> <br>
+
+        <label for="exponent">Enter an exponent: </label>
+        <input type="number" id="exponent" name="exponent" value=2> <br>
+
+        <input type="button" onclick="powers()" value="Compute">
+    </form><br>
+    <p id="result">This text will be replaced </p>
+    <form>
+        <input type="radio" id="plus" name="cal" value="plus" onclick="processRadio()">
+        <label for="plus">+</label></br>
+
+        <input type="radio" id="minus" name="cal" value="minus" onclick="processRadio()">
+        <label for="minus">-</label></br>
+
+        <input type="radio" id="times" name="cal" value="times" onclick="processRadio()">
+        <label for="times">*</label></br>
+
+        <input type="radio" id="divide" name="cal" value="divide" onclick="processRadio()">
+        <label for="divide">/</label></br>
+    </form><br>
+
+    <div id="result2"></div>
+
+    
+
+    <script>
+
+        function powers() {
+            f_b = document.getElementById("base").value;
+            f_e = document.getElementById("exponent").value;
+            out = document.getElementById("result");
+            result = ""
+            for (i = 1; i <= f_e; i++) {
+                result = result + Math.pow(f_b, i) + " "
+            }
+            out.innerHTML = result;
+        }
+        function processRadio(){
+            f_b = document.getElementById("base").value;
+            f_e = document.getElementById("exponent").value;
+            out = document.getElementById("result2");
+            if(document.getElementById("plus").checked)
+            {
+                out.innerHTML=Number(f_b)+Number(f_e);
+            }
+            if(document.getElementById("minus").checked)
+            {
+                out.innerHTML=f_b-f_e;
+            }
+            if(document.getElementById("times").checked)
+            {
+                out.innerHTML=f_b*f_e;
+            }
+            if(document.getElementById("divide").checked)
+            {
+                out.innerHTML=f_b/f_e;
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
