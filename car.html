@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Car</title>
+    
+</head>
+
+<body>
+    <h2>Shashidhar Reddy Peddireddy orders a car</h2>
+
+    <form>
+        <label for="elec">Electric</label>
+        <input type="checkbox" id="elec" value="electric" name="operation"><br>
+        <label for="ac">AC</label>
+        <input type="checkbox" id="ac" value="ac" name="operation"><br>
+        <label for="gps">GPS</label>
+        <input type="checkbox" id="gps" value="gps" name="operation"><br><br>
+        <input type="button" class="btn btn-primary" value="Order a Car" onclick="orderCar()"><br><br>
+        <p id="res">This text will be replaced </p><br><br>
+    </form>
+    <form>
+        <label>Enter a property: </label>
+        <input class="col text-center" type="text" id="property" value="color"><br><br>
+        <label>Enter a value: </label>
+        <input class="col text-center" type="text" id="pvalue"><br><br>
+        <input type="button" class="btn btn-primary" onclick="updateCar()" value="Update the car"><br><br>
+        <p id="res1">This text will be replaced </p>
+    </form>
+    <script>
+        var my_car = {}
+        out = document.getElementById("res")
+        function orderCar() {
+            E1 = document.getElementById("elec")
+            A = document.getElementById("ac")
+            GP = document.getElementById("gps")
+
+            my_car = {
+                Electric: false,
+                AC: false,
+                GPS: false
+            };
+            my_car.Electric = E1.checked
+            my_car.AC = A.checked
+            my_car.GPS = GP.checked
+            my_car=JSON.stringify(my_car)
+            out.innerHTML = my_car;
+            my_car=JSON.parse(my_car);
+
+        }
+        function updateCar() {
+            my_car.property = document.getElementById("property").value;
+            my_car.Value = document.getElementById("pvalue").value;
+            my_car=JSON.stringify(my_car)
+            document.getElementById("res1").innerHTML = my_car;
+            my_car=JSON.parse(my_car);
+        }
+
+    </script>
+
+</body>
+
+</html>
